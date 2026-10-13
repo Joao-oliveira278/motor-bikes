@@ -1,0 +1,431 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Motorbike Multimarcas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: vitrine escura, luz neon violeta vinda do letreiro da loja; cada moto ganha a cor da própria moto. */
+:root {
+  color-scheme: dark;
+  --bg: #0b0c12;
+  --bg-2: #10121a;
+  --surface: #141724;
+  --line: #262b3d;
+  --fg: #eef0f7;
+  --muted: #9aa1b7;
+  --neon: #8d7dff;
+  --wa: #25d366;
+  --wa-ink: #05200e;
+  --f-display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --f-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; }
+.wrap { max-width: 1160px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 32px); }
+:focus-visible { outline: 2px solid var(--neon); outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- nav ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: rgba(11, 12, 18, .82);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+.brand-lockup { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+.brand-lockup svg { width: 34px; height: 34px; flex: none; }
+.brand-lockup b {
+  font-family: var(--f-display); font-weight: 800; font-size: 22px; letter-spacing: .06em; text-transform: uppercase; line-height: 1;
+  display: block; white-space: nowrap;
+}
+.brand-lockup span {
+  font-family: var(--f-mono); font-size: 10px; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 3px;
+}
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a.link { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 15px; transition: color .2s; }
+.nav-links a.link:hover { color: var(--fg); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 46px; padding: 0 22px; border-radius: 999px;
+  font-weight: 700; font-size: 15px; text-decoration: none; white-space: nowrap;
+  background: var(--wa); color: var(--wa-ink);
+  transition: transform .2s, box-shadow .2s, background .2s;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -8px rgba(37, 211, 102, .55); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+.btn.ghost:hover { border-color: var(--neon); box-shadow: 0 10px 30px -10px rgba(141, 125, 255, .6); }
+.btn.sm { min-height: 40px; padding: 0 18px; font-size: 14px; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero::before {
+  content: ""; position: absolute; inset: -20% -10% auto auto; width: 70%; height: 130%;
+  background: radial-gradient(closest-side, rgba(141, 125, 255, .28), rgba(141, 125, 255, .08) 55%, transparent 75%);
+  pointer-events: none;
+}
+.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: center; gap: 48px; padding-block: clamp(48px, 8vw, 104px); }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: var(--neon); margin: 0 0 20px; }
+h1 {
+  font-family: var(--f-display); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(52px, 9vw, 112px); line-height: .9; letter-spacing: .005em; margin: 0 0 24px; text-wrap: balance;
+}
+h1 em { font-style: normal; color: transparent; -webkit-text-stroke: 2px var(--neon); }
+.lead { max-width: 52ch; color: var(--muted); font-size: clamp(16px, 1.6vw, 19px); margin: 0 0 32px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.mark-stage { position: relative; display: grid; place-items: center; aspect-ratio: 1; max-width: 460px; width: 100%; margin-inline: auto; }
+.mark-stage::before {
+  content: ""; position: absolute; inset: 8%; border-radius: 50%;
+  border: 1px solid var(--line);
+  background: radial-gradient(circle at 50% 40%, rgba(141, 125, 255, .18), transparent 65%);
+}
+.mark-stage::after {
+  content: ""; position: absolute; inset: 22%; border-radius: 50%; border: 1px dashed rgba(141, 125, 255, .35);
+}
+.mark-stage svg { position: relative; width: 62%; height: auto; overflow: visible; filter: drop-shadow(0 0 22px rgba(141, 125, 255, .75)); animation: pulse 4.5s ease-in-out infinite; }
+@keyframes pulse { 50% { filter: drop-shadow(0 0 36px rgba(141, 125, 255, .95)); } }
+
+/* ---------- trust strip ---------- */
+.strip { background: var(--bg-2); border-bottom: 1px solid var(--line); }
+.strip ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.strip li { padding: 22px 20px; border-left: 1px solid var(--line); }
+.strip li:first-child { border-left: 0; padding-left: 0; }
+.strip strong { display: block; font-family: var(--f-display); font-weight: 800; font-size: 26px; text-transform: uppercase; letter-spacing: .03em; line-height: 1.05; }
+.strip span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+/* ---------- vitrine ---------- */
+.section { padding-block: clamp(56px, 8vw, 104px); }
+.section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 32px; margin-bottom: 40px; }
+h2 { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(40px, 6vw, 72px); line-height: .95; margin: 0; text-wrap: balance; }
+.section-head p { color: var(--muted); max-width: 40ch; margin: 0; }
+
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.bike {
+  --c: var(--neon);
+  position: relative; display: flex; flex-direction: column; min-width: 0;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+.bike:hover { transform: translateY(-6px); border-color: var(--c); box-shadow: 0 24px 60px -24px var(--c); }
+.shot { position: relative; aspect-ratio: 4 / 4.6; overflow: hidden; background: #000; }
+.shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s; }
+.bike:hover .shot img { transform: scale(1.04); }
+.shot::after { content: ""; position: absolute; inset: auto 0 0 0; height: 40%; background: linear-gradient(to top, var(--surface), transparent); pointer-events: none; }
+.tag {
+  position: absolute; z-index: 2; top: 14px; left: 14px;
+  font-family: var(--f-mono); font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  padding: 6px 11px; border-radius: 999px; background: rgba(8, 9, 14, .78); color: var(--c); border: 1px solid var(--c);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.info { padding: 6px 22px 24px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+.maker { font-family: var(--f-mono); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--c); margin: 0; }
+h3 { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: 34px; line-height: 1; letter-spacing: .01em; margin: -8px 0 0; text-wrap: balance; }
+.specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border: 1px solid var(--line); border-radius: 12px; }
+.specs div { padding: 10px 12px; border-left: 1px solid var(--line); min-width: 0; }
+.specs div:first-child { border-left: 0; }
+.specs dt { font-family: var(--f-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.specs dd { margin: 2px 0 0; font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; color: #cfd3e2; font-size: 15px; }
+.checks li { position: relative; padding-left: 26px; }
+.checks li::before { content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: color-mix(in srgb, var(--c) 22%, transparent); }
+.checks li::after { content: ""; position: absolute; left: 5px; top: 7px; width: 4px; height: 7px; border: solid var(--c); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.buy { margin-top: auto; padding-top: 18px; border-top: 1px dashed var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+.price { margin: 0; font-family: var(--f-display); font-weight: 900; font-size: 40px; line-height: 1; letter-spacing: .01em; font-variant-numeric: tabular-nums; }
+.price small { font-size: 22px; color: var(--muted); font-weight: 700; }
+.fine { margin: 0; font-size: 13px; color: var(--muted); }
+
+.more {
+  margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px;
+  padding: 28px clamp(20px, 3vw, 36px); border-radius: 18px; border: 1px dashed rgba(141, 125, 255, .5);
+  background: linear-gradient(100deg, rgba(141, 125, 255, .12), transparent 70%);
+}
+.more h3 { margin: 0 0 6px; font-size: 30px; }
+.more p { margin: 0; color: var(--muted); max-width: 52ch; }
+
+/* ---------- como comprar ---------- */
+.how { background: var(--bg-2); border-block: 1px solid var(--line); }
+.how .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.how article { padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg); min-width: 0; }
+.how h3 { font-size: 28px; margin: 0 0 10px; }
+.how p { margin: 0; color: var(--muted); }
+.how .big { font-family: var(--f-display); font-weight: 900; font-size: 56px; line-height: 1; color: var(--neon); margin-bottom: 8px; display: block; }
+
+/* ---------- contato ---------- */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+.panel { padding: clamp(24px, 3vw, 40px); border: 1px solid var(--line); border-radius: 18px; background: var(--surface); min-width: 0; }
+.panel h3 { margin: 0 0 20px; font-size: 32px; }
+.addr { font-style: normal; font-size: 18px; line-height: 1.6; margin: 0 0 24px; }
+.addr b { display: block; font-size: 20px; }
+.panel.zap { background: radial-gradient(120% 120% at 100% 0%, rgba(37, 211, 102, .16), transparent 60%), var(--surface); }
+.num { font-family: var(--f-mono); font-weight: 700; font-size: clamp(22px, 3.4vw, 32px); letter-spacing: .02em; margin: 0 0 8px; user-select: all; }
+.copy-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.note { color: var(--muted); font-size: 14px; margin: 0; min-height: 1.4em; }
+
+footer { border-top: 1px solid var(--line); padding-block: 32px; color: var(--muted); font-size: 13px; }
+footer .wrap { display: grid; gap: 8px; }
+footer p { margin: 0; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .how .cols { grid-template-columns: 1fr; }
+  .strip ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip li:nth-child(3) { border-left: 0; padding-left: 0; }
+  .strip li:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 24px; }
+  .mark-stage { max-width: 280px; order: -1; }
+  .contact { grid-template-columns: 1fr; }
+  .nav-links a.link { display: none; }
+}
+@media (max-width: 620px) {
+  .grid { grid-template-columns: 1fr; }
+  .brand-lockup span { display: none; }
+  .brand-lockup b { font-size: 19px; }
+  .section-head { margin-bottom: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand-lockup" href="#topo" aria-label="Motorbike Multimarcas">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 56 L26 8 L32 24 L38 8 L58 56" fill="none" stroke="#8d7dff" stroke-width="6" stroke-linejoin="miter" stroke-linecap="square"/></svg>
+      <div><b>Motorbike</b><span>Multimarcas</span></div>
+    </a>
+    <nav class="nav-links" aria-label="Seções">
+      <a class="link" href="#vitrine">Motos</a>
+      <a class="link" href="#comprar">Como comprar</a>
+      <a class="link" href="#contato">Onde estamos</a>
+      <a class="btn sm" href="https://wa.me/5517991968585?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motorbike%20Multimarcas." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.7a11.9 11.9 0 0 0 5.7 1.5h0c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.4zM12 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.9 9.9 0 0 1-1.5-5.3C2.2 6.4 6.6 2 12 2c2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.4-4.4 9.9-9.9 9.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.8.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">São José do Rio Preto · SP</p>
+        <h1>Motos premium de <em>todas</em> as marcas</h1>
+        <p class="lead">BMW, Triumph, Kawasaki e muito mais. Seminovas com cautelar aprovada e zero quilômetro com garantia de fábrica, direto na vitrine da Motorbike Multimarcas.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#vitrine">Ver as motos</a>
+          <a class="btn ghost" href="https://wa.me/c/5517991968585" target="_blank" rel="noopener">Catálogo completo no WhatsApp</a>
+        </div>
+      </div>
+      <div class="mark-stage" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path d="M6 56 L26 8 L32 24 L38 8 L58 56" fill="none" stroke="#b9afff" stroke-width="3.2" stroke-linejoin="miter" stroke-linecap="square"/><path d="M6 56 L26 8 L32 24 L38 8 L58 56" fill="none" stroke="#8d7dff" stroke-width="7" stroke-linejoin="miter" stroke-linecap="square" opacity=".35"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Diferenciais">
+    <div class="wrap">
+      <ul>
+        <li><strong>Cautelar aprovada</strong><span>Nas seminovas da vitrine</span></li>
+        <li><strong>Até 24x</strong><span>Parcelamos no cartão de crédito</span></li>
+        <li><strong>Financiamento</strong><span>Consulte as condições</span></li>
+        <li><strong>Manual + chave reserva</strong><span>Entregues com a moto</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="vitrine">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Na vitrine agora</h2>
+        <p>Três motos separadas para você. Toque em “Quero esta moto” e a conversa já abre no WhatsApp com o modelo escolhido.</p>
+      </div>
+
+      <div class="grid">
+        <article class="bike" style="--c:#9a8cff">
+          <div class="shot"><span class="tag">Seminova</span><img src="img/bmw.jpg" alt="BMW F900 GS Adventure Plus prata e branca com baús laterais, na vitrine da loja" width="555" height="653" loading="lazy"></div>
+          <div class="info">
+            <p class="maker">BMW</p>
+            <h3>F900 GS Adventure Plus</h3>
+            <dl class="specs">
+              <div><dt>Ano</dt><dd>2024/25</dd></div>
+              <div><dt>Km</dt><dd>12.262</dd></div>
+              <div><dt>Dono</dt><dd>Único</dd></div>
+            </dl>
+            <ul class="checks">
+              <li>Cautelar aprovada</li>
+              <li>Revisada na concessionária</li>
+              <li>Garantia de fábrica</li>
+              <li>Manual e chave reserva</li>
+            </ul>
+            <div class="buy">
+              <p class="price">R$ 74.800<small>,00</small></p>
+              <a class="btn sm" href="https://wa.me/5517991968585?text=Ol%C3%A1!%20Tenho%20interesse%20na%20BMW%20F900%20GS%20Adventure%20Plus%202024%2F25." target="_blank" rel="noopener">Quero esta moto</a>
+            </div>
+            <p class="fine">Financiamento sob consulta · até 24x no cartão</p>
+          </div>
+        </article>
+
+        <article class="bike" style="--c:#f7c61b">
+          <div class="shot"><span class="tag">0 km</span><img src="img/triumph.jpg" alt="Triumph Scrambler 400 XC amarela na vitrine da loja" width="556" height="681" loading="lazy"></div>
+          <div class="info">
+            <p class="maker">Triumph</p>
+            <h3>Scrambler 400 XC</h3>
+            <dl class="specs">
+              <div><dt>Ano</dt><dd>2026/26</dd></div>
+              <div><dt>Km</dt><dd>0</dd></div>
+              <div><dt>Estado</dt><dd>Nova</dd></div>
+            </dl>
+            <ul class="checks">
+              <li>Documentação 2026 paga</li>
+              <li>Garantia de fábrica</li>
+              <li>Manual e chave reserva</li>
+            </ul>
+            <div class="buy">
+              <p class="price">R$ 32.990<small>,00</small></p>
+              <a class="btn sm" href="https://wa.me/5517991968585?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Triumph%20Scrambler%20400%20XC%202026%2F26." target="_blank" rel="noopener">Quero esta moto</a>
+            </div>
+            <p class="fine">Financiamento sob consulta · até 24x no cartão</p>
+          </div>
+        </article>
+
+        <article class="bike" style="--c:#3fe08a">
+          <div class="shot"><span class="tag">Seminova</span><img src="img/kawasaki.jpg" alt="Kawasaki Versys 1000 Grand Tourer verde e preta com baús, vista traseira" width="362" height="470" loading="lazy"></div>
+          <div class="info">
+            <p class="maker">Kawasaki</p>
+            <h3>Versys 1000 Grand Tourer ABS</h3>
+            <dl class="specs">
+              <div><dt>Ano</dt><dd>2021/21</dd></div>
+              <div><dt>Km</dt><dd>2.833</dd></div>
+              <div><dt>Dono</dt><dd>Único</dd></div>
+            </dl>
+            <ul class="checks">
+              <li>Cautelar aprovada</li>
+              <li>Ótimo estado de conservação</li>
+              <li>IPVA 2026 pago</li>
+              <li>Manual e chave reserva</li>
+            </ul>
+            <div class="buy">
+              <p class="price">R$ 72.800<small>,00</small></p>
+              <a class="btn sm" href="https://wa.me/5517991968585?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Kawasaki%20Versys%201000%20Grand%20Tourer%202021%2F21." target="_blank" rel="noopener">Quero esta moto</a>
+            </div>
+            <p class="fine">Financiamento sob consulta · até 24x no cartão</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="more">
+        <div>
+          <h3>Procurando outro modelo?</h3>
+          <p>O catálogo completo fica no WhatsApp da loja, com todas as motos disponíveis no momento.</p>
+        </div>
+        <a class="btn" href="https://wa.me/c/5517991968585" target="_blank" rel="noopener">Abrir catálogo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section how" id="comprar">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Como comprar</h2>
+        <p>Forma de pagamento para caber no seu bolso, com a moto já documentada e conferida.</p>
+      </div>
+      <div class="cols">
+        <article>
+          <span class="big">24x</span>
+          <h3>No cartão de crédito</h3>
+          <p>Parcelamos em até 24 vezes no cartão de crédito nas motos da vitrine.</p>
+        </article>
+        <article>
+          <span class="big">Fin.</span>
+          <h3>Financiamento</h3>
+          <p>Chame no WhatsApp e consulte as condições de financiamento para a moto que você escolheu.</p>
+        </article>
+        <article>
+          <span class="big">OK</span>
+          <h3>Moto conferida</h3>
+          <p>Seminovas com cautelar aprovada, manual e chave reserva. As 0 km saem com garantia de fábrica.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contato">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Venha conhecer</h2>
+        <p>As motos estão na loja em São José do Rio Preto. Chame antes para confirmar a disponibilidade.</p>
+      </div>
+      <div class="contact">
+        <div class="panel">
+          <h3>Onde estamos</h3>
+          <address class="addr">
+            <b>Motorbike Multimarcas</b>
+            Av. Coração de Jesus, 22<br>
+            Vila São Pedro<br>
+            São José do Rio Preto – SP
+          </address>
+          <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Av.+Cora%C3%A7%C3%A3o+de+Jesus+22+Vila+S%C3%A3o+Pedro+S%C3%A3o+Jos%C3%A9+do+Rio+Preto+SP" target="_blank" rel="noopener">Abrir no mapa</a>
+        </div>
+        <div class="panel zap">
+          <h3>Fale com a loja</h3>
+          <p class="num" id="fone">(17) 99196-8585</p>
+          <p class="note">WhatsApp da Motorbike Multimarcas</p>
+          <div class="copy-row">
+            <a class="btn" href="https://wa.me/5517991968585?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motorbike%20Multimarcas." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+            <button class="btn ghost" id="copiar" type="button">Copiar número</button>
+          </div>
+          <p class="note" id="aviso" role="status" style="margin-top:12px"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Motorbike Multimarcas · Av. Coração de Jesus, 22, Vila São Pedro, São José do Rio Preto – SP</p>
+    <p>Reservamos o direito de corrigir eventuais erros de digitação e alterar valores sem aviso prévio.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('copiar');
+  var aviso = document.getElementById('aviso');
+  var fone = document.getElementById('fone');
+  btn.addEventListener('click', function () {
+    var texto = fone.textContent.trim();
+    function selecionar() {
+      var r = document.createRange(); r.selectNodeContents(fone);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      aviso.textContent = 'Número selecionado. Copie com o menu do seu aparelho.';
+    }
+    try {
+      navigator.clipboard.writeText(texto).then(function () {
+        aviso.textContent = 'Número copiado.';
+      }, selecionar);
+    } catch (e) { selecionar(); }
+  });
+})();
+</script>
+
+</body></html>
